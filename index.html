@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drill Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="bar">
+    <div>
+      <p class="kicker">Spaced review</p>
+      <h1>Drill Deck</h1>
+    </div>
+    <div class="bar-actions">
+      <button type="button" class="ghost" id="resetBtn">Reset sample</button>
+      <button type="button" class="primary" id="addDeck">New deck</button>
+    </div>
+  </header>
+  <main>
+    <section id="home">
+      <div id="decks" class="decks"></div>
+    </section>
+    <section id="editor" hidden>
+      <button type="button" class="ghost" id="backHome">← Decks</button>
+      <div class="editor-head">
+        <h2 id="editorTitle"></h2>
+        <div class="bar-actions">
+          <button type="button" class="primary" id="studyBtn">Study due cards</button>
+          <button type="button" class="ghost" id="addCard">Add card</button>
+        </div>
+      </div>
+      <div id="cards"></div>
+    </section>
+    <section id="study" hidden>
+      <button type="button" class="ghost" id="exitStudy">← Exit study</button>
+      <p class="hint" id="studyProg"></p>
+      <button type="button" class="flip" id="flipCard" aria-live="polite"></button>
+      <div class="study-actions" id="grade" hidden>
+        <button type="button" class="ghost" data-grade="again">Again</button>
+        <button type="button" class="primary" data-grade="good">Good</button>
+      </div>
+      <p class="hint" id="emptyStudy" hidden>Nothing due. Come back later or add cards.</p>
+    </section>
+  </main>
+  <dialog id="cardDialog">
+    <form id="cardForm">
+      <h3 id="cardDialogTitle">Card</h3>
+      <label>Front <textarea name="front" required rows="3"></textarea></label>
+      <label>Back <textarea name="back" required rows="3"></textarea></label>
+      <menu>
+        <button type="button" class="ghost" id="cancelCard">Cancel</button>
+        <button type="submit" class="primary">Save</button>
+      </menu>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
