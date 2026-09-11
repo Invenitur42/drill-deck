@@ -37,7 +37,13 @@ function uid() {
   return Math.random().toString(36).slice(2, 9);
 }
 function escapeHtml(s) {
-  return String(s).replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">").replace(/\n/g, "<br>");
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/\n/g, "<br>");
 }
 function now() {
   return Date.now();
